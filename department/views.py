@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from login.models import Dept, Course, Class, Teacher, User
+from login.models import Dept, Course, Class, Teacher, User, Assign
 
 # Create your views here.
 def Department(request):
@@ -219,9 +219,21 @@ def editTeacher(request,id):
 
 
 def teacherClass(request):
+    if request.method =="POST":
+       assign = Assign()
+       assign.class_id_id = request.POST['class']
+       assign.course_id = request.POST['course']
+       assign.teacher_id = request.POST['teacher']
+       assign.save()
+       context = {
+           'success': "Teacher is successfully added to the course now please assign Period timming",
+           'assign': Assign.objects.all()
+       }
+       return render(request, 'teacher/teacher_class.html', context)
+
     context={
         'class':Class.objects.all(),
         'course':Course.objects.all(),
         'teacher':Teacher.objects.all(),
-    }
+    }       
     return render(request, 'teacher/teacher_class.html', context)
