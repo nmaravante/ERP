@@ -29,6 +29,37 @@
                         </select>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="sex" class="col-sm-2 control-label">Day</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="sex" id="sex">
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sex" class="col-sm-2 control-label">Time</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="sex" id="sex">
+                            <option value="7:30 - 8:30">7:30 - 8:30</option>
+                            <option value="8:30 - 9:30">8:30 - 9:30</option>
+                            <option value="9:30 - 10:30">9:30 - 10:30</option>
+                            <option value="11:00 - 11:50">11:00 - 11:50</option>
+                            <option value="11:50 - 12:40">11:50 - 12:40</option>
+                            <option value="12:40 - 1:30">12:40 - 1:30</option>
+                            <option value="2:30 - 3:30">2:30 - 3:30</option>
+                            <option value="3:30 - 4:30">3:30 - 4:30</option>
+                            <option value="4:30 - 5:30">4:30 - 5:30</option>
+                
+                        </select>
+                    </div>
+                </div>
+                
             <div class="box-footer">
                 <a href="{% url 'department:teachers' %}" class="btn btn-default">Cancel</a>
                 <button type="submit" class="btn btn-info pull-right">Submit</button>
