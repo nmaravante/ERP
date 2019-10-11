@@ -1,0 +1,26 @@
+ {% extends 'base/base.html' %}
+
+
+ {% load static %}
+ {% block style %}
+  <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
+ {% endblock %}
+
+
+ {% block content %}
+ 
+
+ {% endblock %}
+
+ {% block script %}
+
+ <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
+
+ <script>
+    $(document).ready(function(){
+  $(".owl-carousel").owlCarousel();
+});
+ </script>
+
+ {% endblock %}

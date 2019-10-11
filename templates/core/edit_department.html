@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="col-md-6">
+    {% if success %}
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+        {{success}}
+    </div>
+    {% endif %}
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h2 class="box-title">New Department</h2>
+        </div>
+        
+        <form class="form-horizontal" method="POST" action="{% url 'department:editDepartment' id=department.id %}">
+            {% csrf_token %}
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="dept" class="col-sm-2 control-label">Department Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" value={{department.name}} name="department" id="dept" placeholder="Department">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="s_dept" class="col-sm-2 control-label">Short Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" value={{department.short_name}} name="s_dept" id="s_dept" placeholder="Short Name">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <a href="{% url 'department:department' %}" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-info pull-right">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+
+
+{% endblock %}

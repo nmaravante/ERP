@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<a href="{% url 'department:addTeacher' %}" class="btn bg-maroon btn-flat margin">New Teacher</a>
+<div class="col-xs-12">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Teachers</h3>
+
+            <div class="box-tools">
+                <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th>Sl No</th>
+                        <th>Name </th>
+                        <th>Department</th>
+                        <th>Gender</th>
+                        <th>phone</th>
+                        <th>Serial number</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for each in teachers %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{each.name}}</td>
+                        <td>{{each.dept}}</td>
+                        <td>{{each.sex}}</td>
+                        <td>{{each.phone}}</td>
+                        <td>{{each.t_USN}}</td>
+                        <td><a href="{% url 'department:editTeacher' id=each.id %}">
+                                <span class="label label-info">Edit</span>
+                            </a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+</div>
+{% endblock %}
+
+{% block script %}
+
+
+
+{% endblock %}

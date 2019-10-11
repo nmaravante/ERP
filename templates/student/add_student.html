@@ -1,0 +1,89 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+
+
+<div class="col-md-8">
+    {% if success %}
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+        {{success}}
+    </div>
+    {% endif %}
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h2 class="box-title">New Student</h2>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" method="POST" action="">
+            {% csrf_token %}
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Student Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="student name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sex" class="col-sm-2 control-label">Gender</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="sex" id="sex">     
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="DOB" class="col-sm-2 control-label">Date Of birth</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="DOB" id="DOB"
+                            placeholder="DOB">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="class" class="col-sm-2 control-label">Class</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="class" id="class">
+                            {% for each in class_s %}
+                            <option value={{each.id}}>{{each}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="col-sm-2 control-label">phone number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="phone" id="phone" placeholder="phone number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="USN" class="col-sm-2 control-label">USN number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="USN" id="USN" placeholder="USN number">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <a href="{% url 'student:students' %}" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-info pull-right">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+
+
+{% endblock %}

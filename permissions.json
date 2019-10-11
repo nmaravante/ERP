@@ -1,0 +1,59 @@
+[
+    {
+      "model": "login.Permissions",
+      "pk": 1,
+      "fields": {
+        "name": "add_retailer"        
+      }
+    },
+    {
+      "model": "login.Permissions",
+      "pk": 2,
+      "fields": {
+        "name": "list_retailer"
+        
+      }
+      
+    },
+    {
+      "model": "login.Permissions",
+      "pk": 3,
+      "fields": {
+        "name": "add_user"
+        
+      }
+    },
+    {
+      "model": "login.Permissions",
+      "pk": 4,
+      "fields": {
+        "name": "edit_user"
+        
+      }
+    },
+    {
+      "model": "login.Permissions",
+      "pk": 5,
+      "fields": {
+        "name": "list_user"
+        
+      }
+    },
+    {
+      "model": "login.Permissions",
+      "pk": 6,
+      "fields": {
+        "name": "add_role"
+        
+      }
+    },
+    {
+      "model": "login.Permissions",
+      "pk": 7,
+      "fields": {
+        "name": "list_role"
+        
+      }
+    }
+  ]
+

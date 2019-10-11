@@ -1,0 +1,103 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+
+
+<div class="col-md-8">
+    {% if success %}
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+        {{success}}
+    </div>
+    {% endif %}
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h2 class="box-title">Add Teacher</h2>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" method="POST" action="">
+            {% csrf_token %}
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">teacher Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" value="{{teacher.name}}" name="name" id="name" placeholder="Teacher name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">teacher Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" value="{{teacher.email}}" name="email" id="email" placeholder="Teacher email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sex" class="col-sm-2 control-label">Gender</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="sex" id="sex">
+                            {% if student.sex == "Male" %}
+                            <option selected value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            {% else %}
+                            <option value="Male">Male</option>
+                            <option selected value="Female">Female</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="DOB" class="col-sm-2 control-label">Date Of birth</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" value="{{teacher.DOB|date:"Y-m-d"}}" name="DOB" id="DOB" placeholder="DOB">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="class" class="col-sm-2 control-label">Department</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="class" id="class">
+                            {% for each in department %}
+                                {% if each.id == teacher.dept.id %}
+                                <option selected value={{each.id}}>{{each.name}}</option>
+                                {% else %}
+                                <option  value={{each.id}}>{{each.name}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="col-sm-2 control-label">phone number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" value="{{teacher.phone}}" name="phone" id="phone" placeholder="phone number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="USN" class="col-sm-2 control-label">Serial number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" value="{{teacher.t_USN}}" name="t_USN" id="USN"
+                            placeholder="Serial number Ex:EC001">
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <a href="{% url 'department:teachers' %}" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-info pull-right">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+
+
+{% endblock %}

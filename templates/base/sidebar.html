@@ -1,0 +1,92 @@
+{% load static %}
+ <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+     
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{request.user.username}}</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      
+      <ul class="sidebar-menu" data-widget="tree">
+        
+        <li class="header">MAIN NAVIGATION</li>
+        <li><a href="{% url 'home:dashboard' %}"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-secret"></i> <span>Backend User</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <li class="active"><a href="{% url 'home:addRole' %}"><i class="fa fa-circle-o"></i> Add Role</a></li>
+            <li class="active"><a href="{% url 'home:listRole' %}"><i class="fa fa-circle-o"></i> List Role</a></li>
+            <li class="active"><a href="{% url 'home:addUser' %}"><i class="fa fa-circle-o"></i> Add User</a></li>
+            <li class="active"><a href="{% url 'home:listuser' %}"><i class="fa fa-circle-o"></i> List User</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-secret"></i> <span>Departments</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{% url 'department:department' %}"><i class="fa fa-circle-o"></i>department</a></li>
+            <li class="active"><a href="{% url 'department:course' %}"><i class="fa fa-circle-o"></i>Course</a></li>
+            <li class="active"><a href="{% url 'department:class' %}"><i class="fa fa-circle-o"></i>Class</a></li>
+          </ul>
+          
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-secret"></i> <span>Students</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{% url 'student:students' %}"><i class="fa fa-circle-o"></i>students</a></li>
+          </ul>
+        
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-secret"></i> <span>Teacher</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{% url 'department:teachers' %}"><i class="fa fa-circle-o"></i>teachers</a></li>
+            <li class="active"><a href="{% url 'department:teacher_class'%}"><i class="fa fa-circle-o"></i>Assign Teacher</a></li>
+          </ul>
+        
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-secret"></i> <span>Settings</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{% url 'home:changePassowrd' %}"><i class="fa fa-circle-o"></i>change password</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
