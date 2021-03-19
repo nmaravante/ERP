@@ -18,7 +18,7 @@ django-cors-headers==3.0.2
 django-elasticsearch-dsl==6.4.1
 django-filter==2.1.0
 django-uuidfield==0.5.0
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 elasticsearch==7.0.2
 elasticsearch-dsl==6.4.0
